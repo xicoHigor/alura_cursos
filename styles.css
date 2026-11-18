@@ -70,6 +70,22 @@ h1 span { color: transparent; background: linear-gradient(100deg, var(--cyan) 5%
 .star-one { top: 27px; left: 68px; font-size: 27px; }
 .star-two { right: 34px; bottom: 56px; color: var(--cyan); font-size: 20px; }
 
+.start-here { position: relative; z-index: 1; padding: 22px 0 66px; }
+.start-heading { align-items: end; margin-bottom: 20px; }
+.start-count { padding: 8px 11px; border: 1px solid rgba(52, 237, 243, .18); border-radius: 999px; color: #a9f9fa; background: rgba(52, 237, 243, .06); font-size: 10px; font-weight: 650; white-space: nowrap; }
+.start-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
+.start-card { position: relative; display: flex; flex-direction: column; min-height: 225px; padding: 20px; overflow: hidden; border: 1px solid rgba(201, 213, 255, .14); border-radius: 17px; background: linear-gradient(145deg, rgba(20, 31, 84, .9), rgba(14, 23, 64, .9)); }
+.start-card::before { content: ""; position: absolute; top: 0; left: 18px; width: 50px; height: 2px; background: var(--area-accent, var(--cyan)); }
+.start-card-top { display: flex; align-items: center; gap: 11px; }
+.start-icon { display: grid; flex: 0 0 58px; place-items: center; width: 58px; height: 58px; border: 1px solid color-mix(in srgb, var(--area-accent, var(--cyan)) 34%, transparent); border-radius: 16px; color: var(--area-accent, var(--cyan)); background: color-mix(in srgb, var(--area-accent, var(--cyan)) 10%, rgba(7, 15, 52, .75)); }
+.start-icon svg { width: 30px; height: 30px; }
+.start-label { color: var(--area-accent, var(--cyan)); font-size: 9px; font-weight: 720; letter-spacing: .1em; }
+.start-card h3 { margin: 18px 0 7px; color: #f3f5ff; font-size: 17px; letter-spacing: -.025em; }
+.start-card p { margin: 0 0 18px; color: #aab5da; font-size: 11px; line-height: 1.6; }
+.start-action { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; margin-top: auto; padding: 0; border: 0; color: #dce4fb; background: transparent; font-size: 11px; font-weight: 700; cursor: pointer; }
+.start-action span { color: var(--area-accent, var(--cyan)); font-size: 15px; transition: transform .18s ease; }
+.start-action:hover span { transform: translate(2px, -2px); }
+
 .catalog { position: relative; z-index: 1; padding-top: 70px; padding-bottom: 100px; border-top: 1px solid rgba(201, 213, 255, .1); }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
 .section-heading h2, .about h2 { margin: 12px 0 8px; font-size: clamp(30px, 3.7vw, 43px); letter-spacing: -.055em; line-height: 1.06; }
@@ -81,6 +97,10 @@ h1 span { color: transparent; background: linear-gradient(100deg, var(--cyan) 5%
 .trails-heading { margin-bottom: 25px; }
 .trail-total { margin-bottom: 5px; color: #9ca8d1; font-size: 12px; white-space: nowrap; }
 .trail-total strong { color: var(--cerise); font-size: 24px; letter-spacing: -.04em; }
+.trail-progress-overview { display: flex; align-items: center; gap: 13px; max-width: 520px; margin-top: 19px; color: #9da9d1; font-size: 10px; }
+.overall-progress-track, .trail-progress-track { position: relative; height: 6px; overflow: hidden; border-radius: 99px; background: rgba(201, 213, 255, .12); }
+.overall-progress-track { flex: 1; }
+.overall-progress-track > span, .trail-progress-track > span { display: block; width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--cyan), #b25bea, var(--cerise)); transition: width .25s ease; }
 .trail-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; align-items: start; }
 .trail-card { position: relative; min-width: 0; padding: 19px; overflow: hidden; border: 1px solid rgba(201, 213, 255, .13); border-radius: 16px; background: linear-gradient(145deg, rgba(20, 31, 84, .94), rgba(14, 23, 64, .93)); }
 .trail-card::before { content: ""; position: absolute; top: 0; left: 18px; width: 48px; height: 2px; background: var(--area-accent, var(--cyan)); }
@@ -89,6 +109,9 @@ h1 span { color: transparent; background: linear-gradient(100deg, var(--cyan) 5%
 .trail-step-count { color: #aab5da; font-size: 10px; white-space: nowrap; }
 .trail-card h3 { margin: 17px 0 8px; color: #f3f5ff; font-size: 17px; line-height: 1.35; letter-spacing: -.025em; }
 .trail-description { min-height: 40px; margin: 0; color: #aab5da; font-size: 11px; line-height: 1.65; }
+.trail-card-progress { display: grid; gap: 8px; margin: 15px 0 12px; }
+.trail-card-progress-text { color: #aab5da; font-size: 9px; }
+.trail-progress-track { width: 100%; height: 5px; }
 .trail-note { margin: 12px 0 0; padding: 9px 11px; border-left: 2px solid var(--cerise); border-radius: 0 8px 8px 0; color: #ffd0ef; background: rgba(247, 21, 171, .07); font-size: 10px; line-height: 1.55; }
 .trail-source { display: inline-flex; margin: 12px 0 11px; color: var(--area-accent, var(--cyan)); font-size: 9px; font-weight: 720; letter-spacing: .035em; }
 .trail-details { border-top: 1px solid rgba(201, 213, 255, .12); }
@@ -97,14 +120,16 @@ h1 span { color: transparent; background: linear-gradient(100deg, var(--cyan) 5%
 .trail-details summary span { color: var(--area-accent, var(--cyan)); font-size: 15px; transition: transform .18s ease; }
 .trail-details[open] summary span { transform: rotate(180deg); }
 .trail-steps { display: grid; gap: 0; margin: 10px 0 0; padding: 0; list-style: none; }
-.trail-steps li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; padding: 11px 0; border-top: 1px solid rgba(201, 213, 255, .08); }
+.trail-steps li { display: grid; grid-template-columns: 26px minmax(0, 1fr) 30px; gap: 10px; align-items: center; padding: 11px 0; border-top: 1px solid rgba(201, 213, 255, .08); }
 .trail-step-number { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid color-mix(in srgb, var(--area-accent, var(--cyan)) 32%, transparent); border-radius: 8px; color: var(--area-accent, var(--cyan)); background: color-mix(in srgb, var(--area-accent, var(--cyan)) 9%, transparent); font-size: 9px; font-weight: 740; }
 .trail-step-content { display: grid; gap: 4px; min-width: 0; }
 .trail-step-stage { color: #8190bf; font-size: 9px; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; }
 .trail-course-link { color: #f0f3ff; font-size: 11px; font-weight: 610; line-height: 1.45; }
 .trail-course-link:hover { color: var(--cyan); }
 .trail-step-description { margin: 2px 0 0; color: #9da9d1; font-size: 10px; line-height: 1.5; }
-.filter-panel { display: grid; grid-template-columns: minmax(240px, 1.5fr) minmax(130px, .78fr) minmax(130px, .78fr) minmax(96px, .55fr) auto auto; gap: 10px; align-items: end; padding: 14px; border: 1px solid rgba(201, 213, 255, .14); border-radius: 18px; background: rgba(16, 26, 72, .86); box-shadow: 0 16px 45px rgba(0, 0, 0, .17); }
+.step-complete { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid rgba(201, 213, 255, .18); border-radius: 9px; color: #8793bf; background: rgba(7, 15, 52, .5); font-size: 16px; cursor: pointer; transition: .18s ease; }
+.step-complete:hover, .step-complete[aria-pressed="true"] { border-color: color-mix(in srgb, var(--area-accent, var(--cyan)) 55%, transparent); color: var(--area-accent, var(--cyan)); background: color-mix(in srgb, var(--area-accent, var(--cyan)) 11%, transparent); }
+.filter-panel { display: grid; grid-template-columns: minmax(245px, 1.5fr) repeat(5, minmax(105px, .72fr)) auto auto; gap: 9px; align-items: end; padding: 14px; border: 1px solid rgba(201, 213, 255, .14); border-radius: 18px; background: rgba(16, 26, 72, .86); box-shadow: 0 16px 45px rgba(0, 0, 0, .17); }
 .search-field, .select-field { display: flex; position: relative; min-width: 0; height: 54px; border: 1px solid rgba(201, 213, 255, .14); border-radius: 11px; background: rgba(7, 15, 52, .65); }
 .search-field { align-items: center; gap: 11px; padding: 0 13px; }
 .search-field:focus-within, .select-field:focus-within { border-color: rgba(52, 237, 243, .72); box-shadow: 0 0 0 3px rgba(52, 237, 243, .09); }
@@ -143,6 +168,9 @@ h1 span { color: transparent; background: linear-gradient(100deg, var(--cyan) 5%
 .topic-chip { max-width: 44%; padding: 5px 8px; border-color: rgba(201, 213, 255, .12); color: #a5b0d6; background: rgba(7, 15, 52, .44); font-weight: 560; }
 .course-card h3 { margin: 17px 0 7px; color: #f3f5ff; font-size: 16px; font-weight: 680; line-height: 1.42; letter-spacing: -.02em; }
 .course-description { display: -webkit-box; margin: 0 0 16px; overflow: hidden; color: #aab5da; font-size: 11.5px; line-height: 1.6; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.course-facts { display: flex; flex-wrap: wrap; gap: 6px; margin: -5px 0 13px; }
+.course-fact { display: inline-flex; align-items: center; padding: 5px 8px; border: 1px solid rgba(52, 237, 243, .18); border-radius: 999px; color: #a9f9fa; background: rgba(52, 237, 243, .055); font-size: 9px; font-weight: 620; }
+.course-fact-duration { border-color: rgba(196, 101, 239, .24); color: #dfb8fa; background: rgba(146, 1, 203, .08); }
 .card-actions { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; }
 .drive-link { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px; border: 1px solid rgba(247, 21, 171, .38); border-radius: 9px; color: #ffc2ec; background: rgba(247, 21, 171, .09); font-size: 10px; font-weight: 700; transition: .18s ease; }
 .drive-link:hover { border-color: var(--cerise); color: var(--white); background: var(--cerise); box-shadow: 0 7px 22px rgba(247, 21, 171, .2); }
@@ -185,6 +213,7 @@ h1 span { color: transparent; background: linear-gradient(100deg, var(--cyan) 5%
   .favorite-filter, .reset-button { grid-column: span 1; }
   .course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .trail-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .start-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
   .wrap, .site-header { width: min(100% - 36px, 600px); }
@@ -212,6 +241,11 @@ h1 span { color: transparent; background: linear-gradient(100deg, var(--cyan) 5%
   .about-link { grid-column: 2; justify-self: start; }
   .trail-grid { grid-template-columns: 1fr; }
   .trail-card.is-featured { grid-column: auto; }
+  .start-grid { grid-template-columns: 1fr; }
+  .start-card { min-height: 205px; }
+  .start-count { display: inline-flex; margin-top: 14px; }
+  .trail-progress-overview { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .overall-progress-track { width: 100%; }
 }
 @media (max-width: 540px) {
   .wrap, .site-header { width: calc(100% - 32px); }

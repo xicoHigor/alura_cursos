@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#070F34" />
-    <meta name="description" content="Catálogo de cursos Alura com busca e filtros por área e tema." />
+    <meta name="description" content="Catálogo de cursos Alura com filtros, trilhas recomendadas e progresso salvo no navegador." />
     <title>Biblioteca de cursos | X-Análises</title>
     <link rel="preconnect" href="https://drive.google.com" />
     <link rel="stylesheet" href="./styles.css" />
@@ -23,9 +23,9 @@
       </a>
       <nav class="top-nav" aria-label="Navegação principal">
         <a href="#catalogo">Catálogo</a>
-      <a href="#trilhas">Trilhas</a>
+        <a href="#trilhas">Trilhas</a>
         <a href="#sobre">Sobre</a>
-        <a class="nav-cta" href="#catalogo">Encontrar um curso <span aria-hidden="true">↘</span></a>
+        <a class="nav-cta" href="#comece-aqui">Comece por aqui <span aria-hidden="true">↘</span></a>
       </nav>
     </header>
 
@@ -58,12 +58,30 @@
         </div>
       </section>
 
+      <section class="start-here wrap" id="comece-aqui">
+        <div class="section-heading start-heading">
+          <div>
+            <div class="section-kicker">UM BOM PRIMEIRO PASSO</div>
+            <h2>Comece por aqui<span>.</span></h2>
+            <p>Escolha o que você quer aprender e siga uma trilha recomendada.</p>
+          </div>
+          <span class="start-count">3 caminhos para explorar</span>
+        </div>
+        <div class="start-grid" id="start-grid"></div>
+      </section>
+
       <section class="trails wrap" id="trilhas">
         <div class="section-heading trails-heading">
           <div>
             <div class="section-kicker">CAMINHOS RECOMENDADOS</div>
             <h2>Trilhas para seguir<span>.</span></h2>
             <p>Sequências de cursos para avançar por assunto, com acesso direto a cada etapa.</p>
+            <div class="trail-progress-overview">
+              <span id="trail-progress-summary">0 etapas concluídas</span>
+              <div class="overall-progress-track" id="overall-trail-progress" role="progressbar" aria-label="Progresso total das trilhas" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <span id="overall-trail-progress-fill"></span>
+              </div>
+            </div>
           </div>
           <div class="trail-total"><strong id="trail-count">—</strong><span> trilhas</span></div>
         </div>
@@ -91,6 +109,8 @@
           </label>
           <label class="select-field"><span>Área</span><select id="category-filter"><option value="">Todas as áreas</option></select></label>
           <label class="select-field"><span>Tema</span><select id="topic-filter"><option value="">Todos os temas</option></select></label>
+          <label class="select-field"><span>Nível sugerido</span><select id="level-filter"><option value="">Todos os níveis</option></select></label>
+          <label class="select-field"><span>Carga horária</span><select id="duration-filter"><option value="">Todas as durações</option></select></label>
           <label class="select-field sort-field"><span>Ordem</span><select id="sort-filter"><option value="az">A–Z</option><option value="za">Z–A</option></select></label>
           <button class="favorite-filter" id="favorites-toggle" type="button" aria-pressed="false"><span aria-hidden="true">♡</span> Favoritos <b id="favorite-count">0</b></button>
           <button class="reset-button" id="reset-filters" type="button">Limpar filtros</button>
