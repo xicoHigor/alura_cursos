@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#070F34" />
+    <meta name="description" content="Catálogo de cursos Alura com busca e filtros por área e tema." />
+    <title>Biblioteca de cursos | X-Análises</title>
+    <link rel="preconnect" href="https://drive.google.com" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./cursos.js" defer></script>
+    <script src="./trilhas.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="wordmark" href="#inicio" aria-label="X-Análises, início">
+        <span class="wordmark-x" aria-hidden="true">X</span>
+        <span>X-Análises <small>CURSOS</small></span>
+      </a>
+      <nav class="top-nav" aria-label="Navegação principal">
+        <a href="#catalogo">Catálogo</a>
+      <a href="#trilhas">Trilhas</a>
+        <a href="#sobre">Sobre</a>
+        <a class="nav-cta" href="#catalogo">Encontrar um curso <span aria-hidden="true">↘</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero wrap" id="inicio">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> APRENDIZADO EM MOVIMENTO</div>
+          <h1>Seu próximo passo<br />começa com <span>curiosidade.</span></h1>
+          <p class="hero-text">Encontre um curso, explore uma nova área e siga aprendendo no seu ritmo.</p>
+          <a class="hero-button" href="#catalogo">Explorar cursos <span aria-hidden="true">↓</span></a>
+          <div class="hero-stats" aria-label="Resumo do catálogo">
+            <div><strong id="hero-course-count">—</strong><span>cursos</span></div>
+            <i aria-hidden="true"></i>
+            <div><strong id="hero-area-count">—</strong><span>áreas</span></div>
+            <i aria-hidden="true"></i>
+            <div><strong>∞</strong><span>possibilidades</span></div>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="Identidade X-Análises">
+          <div class="orbit orbit-a" aria-hidden="true"></div>
+          <div class="orbit orbit-b" aria-hidden="true"></div>
+          <div class="logo-card">
+            <img src="./assets/logo-x-analises-cursos.png" alt="Logo X-Análises" />
+          </div>
+          <div class="floating-note note-top"><span class="note-spark">✳</span> Aprenda algo novo</div>
+          <div class="floating-note note-bottom"><span class="note-line"></span> seu ritmo, seu caminho</div>
+          <div class="art-star star-one" aria-hidden="true">✳</div>
+          <div class="art-star star-two" aria-hidden="true">✦</div>
+        </div>
+      </section>
+
+      <section class="trails wrap" id="trilhas">
+        <div class="section-heading trails-heading">
+          <div>
+            <div class="section-kicker">CAMINHOS RECOMENDADOS</div>
+            <h2>Trilhas para seguir<span>.</span></h2>
+            <p>Sequências de cursos para avançar por assunto, com acesso direto a cada etapa.</p>
+          </div>
+          <div class="trail-total"><strong id="trail-count">—</strong><span> trilhas</span></div>
+        </div>
+        <div class="trail-grid" id="trail-grid"></div>
+      </section>
+
+      <section class="catalog wrap" id="catalogo">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">BIBLIOTECA DE APRENDIZADO</div>
+            <h2>Explore o catálogo<span>.</span></h2>
+            <p>Use a busca e os filtros para chegar direto ao que você procura.</p>
+          </div>
+          <div class="result-total"><strong id="total-count">—</strong><span> cursos disponíveis</span></div>
+        </div>
+
+        <div class="filter-panel">
+          <label class="search-field" for="search-input">
+            <span class="search-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <span class="sr-only">Buscar curso</span>
+            <input id="search-input" type="search" placeholder="Busque por curso, tecnologia ou tema" autocomplete="off" />
+            <kbd>Ctrl K</kbd>
+          </label>
+          <label class="select-field"><span>Área</span><select id="category-filter"><option value="">Todas as áreas</option></select></label>
+          <label class="select-field"><span>Tema</span><select id="topic-filter"><option value="">Todos os temas</option></select></label>
+          <label class="select-field sort-field"><span>Ordem</span><select id="sort-filter"><option value="az">A–Z</option><option value="za">Z–A</option></select></label>
+          <button class="favorite-filter" id="favorites-toggle" type="button" aria-pressed="false"><span aria-hidden="true">♡</span> Favoritos <b id="favorite-count">0</b></button>
+          <button class="reset-button" id="reset-filters" type="button">Limpar filtros</button>
+        </div>
+
+        <div class="results-bar">
+          <p id="results-summary" aria-live="polite">Carregando cursos…</p>
+          <span class="drive-hint"><span></span> acesso pelo Google Drive</span>
+        </div>
+
+        <div class="course-grid" id="course-grid"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <div class="empty-icon" aria-hidden="true">⌕</div>
+          <h3>Nenhum curso encontrado</h3>
+          <p>Tente outro termo ou ajuste os filtros.</p>
+          <button class="hero-button" id="empty-reset" type="button">Limpar busca</button>
+        </div>
+        <div class="load-more-wrap"><button class="load-more" id="load-more" type="button">Mostrar mais cursos <span aria-hidden="true">↓</span></button></div>
+      </section>
+
+      <section class="about wrap" id="sobre">
+        <div class="about-mark" aria-hidden="true">X<span>+</span></div>
+        <div><div class="section-kicker">SOBRE ESTA BIBLIOTECA</div><h2>Conhecimento para colocar em prática.</h2><p>Explore os cursos por área ou siga uma das trilhas recomendadas. Cada etapa leva ao link correspondente no Google Drive.</p></div>
+        <a href="#catalogo" class="about-link">Voltar ao catálogo <span aria-hidden="true">↑</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <div class="footer-brand"><span class="footer-x">X</span><span>X-Análises</span></div>
+      <p>Organizado para aprender, descobrir e avançar.</p>
+      <div class="palette-dots" aria-label="Paleta do site"><i></i><i></i><i></i><i></i><i></i></div>
+    </footer>
+  </body>
+</html>
